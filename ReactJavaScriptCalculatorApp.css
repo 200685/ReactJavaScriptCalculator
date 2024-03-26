@@ -1,0 +1,87 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+    transition: background-color 0.3s ease;
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+/* Remove the distinct styling for operation buttons to make them uniform */
+/* .calculator-grid > button.operation {
+    background-color: rgba(0, 150, 136, .75); 
+    color: white; 
+}
+
+.calculator-grid > button.operation:hover,
+.calculator-grid > button.operation:focus {
+    background-color: rgba(0, 150, 136, .9); 
+} */
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 20px;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, .75);
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.25rem;
+}
+
+.output .current-operand {
+    font-size: 2.25rem;
+}
+
+.error-message {
+    grid-column: 1 / -1;
+    background-color: #FFCCCC;
+    color: #CC0000;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}
